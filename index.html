@@ -1,13 +1,677 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>portfolio</title>
-  </head>
-  <body>
-    <div id="app"></div>
-    <script type="module" src="/src/main.js"></script>
-  </body>
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Abdul Haseeb — Portfolio</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap"
+    rel="stylesheet" />
+
+  <!-- AOS CSS -->
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+</head>
+
+<body class="antialiased">
+
+  <!-- ========== NAVBAR ========== -->
+  <header id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
+    <nav class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+
+      <!-- Logo -->
+      <a href="#hero" class="font-mono text-accent text-lg font-bold tracking-tight hover:opacity-80 transition">
+        &lt;AbdulHaseeb /&gt;
+      </a>
+
+      <!-- Desktop Links -->
+      <ul class="hidden md:flex items-center gap-8 text-sm font-medium text-gray-300">
+        <li><a href="#about" class="hover:text-accent transition-colors duration-200">About</a></li>
+        <li><a href="#education" class="hover:text-accent transition-colors duration-200">Education</a></li>
+        <li><a href="#experience" class="hover:text-accent transition-colors duration-200">Experience</a></li>
+        <li><a href="#skills" class="hover:text-accent transition-colors duration-200">Skills</a></li>
+        <li><a href="#projects" class="hover:text-accent transition-colors duration-200">Projects</a></li>
+        <li>
+          <a href="#contact"
+            class="px-4 py-2 border border-accent text-accent rounded hover:bg-accent hover:text-dark font-semibold transition-all duration-200">
+            Contact
+          </a>
+        </li>
+      </ul>
+
+      <!-- Hamburger Button -->
+      <button id="menu-btn" class="md:hidden flex flex-col gap-1.5 p-2" aria-label="Toggle menu">
+        <span class="ham block w-6 h-0.5 bg-gray-300 transition-all duration-300"></span>
+        <span class="ham block w-6 h-0.5 bg-gray-300 transition-all duration-300"></span>
+        <span class="ham block w-6 h-0.5 bg-gray-300 transition-all duration-300"></span>
+      </button>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu"
+      class="hidden md:hidden bg-surface border-t border-gray-800 px-6 py-4 flex flex-col gap-4 text-sm font-medium text-gray-300">
+      <a href="#about" class="mob-link hover:text-accent transition-colors">About</a>
+      <a href="#education" class="mob-link hover:text-accent transition-colors">Education</a>
+      <a href="#experience" class="mob-link hover:text-accent transition-colors">Experience</a>
+      <a href="#skills" class="mob-link hover:text-accent transition-colors">Skills</a>
+      <a href="#projects" class="mob-link hover:text-accent transition-colors">Projects</a>
+      <a href="#contact" class="mob-link hover:text-accent transition-colors">Contact</a>
+    </div>
+  </header>
+
+  <!-- ========== SECTIONS GO HERE ========== -->
+  <main>
+    <!-- ========== HERO ========== -->
+    <section id="hero" class="min-h-screen flex items-center justify-center relative overflow-hidden">
+
+      <!-- Background grid effect -->
+      <div
+        class="absolute inset-0 bg-[linear-gradient(rgba(0,191,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(0,191,255,0.03)_1px,transparent_1px)] bg-[size:50px_50px]">
+      </div>
+
+      <!-- Glow blob -->
+      <div
+        class="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-accent/5 rounded-full blur-[120px] pointer-events-none">
+      </div>
+
+      <!-- Content -->
+      <div class="relative z-10 text-center px-6 max-w-4xl mx-auto">
+
+        <!-- Greeting -->
+        <p class="font-mono text-accent text-sm tracking-widest uppercase mb-4" data-aos="fade-down">
+          Hello, World! 👋 I'm
+        </p>
+
+        <!-- Name -->
+        <h1 class="text-5xl md:text-7xl font-bold text-white mb-4 leading-tight" data-aos="fade-up">
+          Abdul Haseeb
+        </h1>
+
+        <!-- Typing animation -->
+        <div class="flex items-center justify-center gap-2 mb-6" data-aos="fade-up" data-aos-delay="100">
+          <span class="text-xl md:text-2xl text-gray-400 font-mono">I'm a </span>
+          <span id="typed-text" class="text-xl md:text-2xl font-mono text-accent font-semibold"></span>
+          <span id="cursor" class="text-xl md:text-2xl text-accent font-mono animate-pulse">|</span>
+        </div>
+
+        <!-- Bio -->
+        <p class="text-gray-400 text-base md:text-lg max-w-2xl mx-auto leading-relaxed mb-10" data-aos="fade-up"
+          data-aos-delay="200">
+          A passionate BS Artificial Intelligence student at PAF-IAST, building real-world projects with clean code.
+          I love crafting web experiences, automating workflows, and solving problems with technology.
+        </p>
+
+        <!-- CTA Buttons -->
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-4" data-aos="fade-up"
+          data-aos-delay="300">
+          <a href="#projects"
+            class="px-8 py-3 bg-accent text-dark font-bold rounded hover:bg-accent/80 transition-all duration-200 w-full sm:w-auto text-center">
+            View My Work
+          </a>
+          <a href="/cv.pdf" download
+            class="px-8 py-3 border border-gray-600 text-gray-300 font-semibold rounded hover:border-accent hover:text-accent transition-all duration-200 w-full sm:w-auto text-center">
+            Download CV
+          </a>
+        </div>
+
+        <!-- Scroll indicator -->
+        <div class="mt-16 flex flex-col items-center gap-2 text-gray-600" data-aos="fade-up" data-aos-delay="400">
+          <span class="text-xs font-mono tracking-widest uppercase">Scroll down</span>
+          <div class="w-px h-10 bg-gradient-to-b from-gray-600 to-transparent"></div>
+        </div>
+
+      </div>
+    </section>
+    <!-- ========== ABOUT ========== -->
+    <section id="about" class="py-24 px-6">
+      <div class="max-w-4xl mx-auto">
+
+        <!-- Section label -->
+        <p class="font-mono text-accent text-sm tracking-widest uppercase mb-2" data-aos="fade-up">01. About Me</p>
+        <h2 class="text-3xl md:text-4xl font-bold text-white mb-12" data-aos="fade-up" data-aos-delay="100">
+          Who I Am
+        </h2>
+
+        <div class="grid md:grid-cols-2 gap-12 items-center">
+
+          <!-- Photo -->
+          <div class="flex justify-center md:justify-start" data-aos="fade-right">
+            <div class="relative">
+              <!-- Glow effect -->
+              <div class="absolute inset-0 bg-accent/20 rounded-lg blur-xl"></div>
+              <!-- Image -->
+              <img src="/profile.jpeg" alt="Abdul Haseeb"
+                class="relative w-64 h-64 object-cover rounded-lg border-2 border-accent/40 hover:border-accent transition-colors duration-300" />
+              <!-- Decorative corner -->
+              <div class="absolute -bottom-3 -right-3 w-full h-full border-2 border-accent/20 rounded-lg -z-10"></div>
+            </div>
+          </div>
+
+          <!-- Text -->
+          <div data-aos="fade-left">
+            <p class="text-gray-400 leading-relaxed mb-4">
+              I'm <span class="text-white font-semibold">Abdul Haseeb</span>, an Artifical Intelligence student at
+              <span class="text-accent font-semibold">PAF-IAST, Haripur</span>, passionate about building
+              things that live on the internet and beyond.
+            </p>
+            <p class="text-gray-400 leading-relaxed mb-4">
+              I started my journey with C++ and Java, then expanded into web development, Python scripting,
+              and workflow automation with n8n. I enjoy turning ideas into real, working products —
+              from business websites to university bots.
+            </p>
+            <p class="text-gray-400 leading-relaxed">
+              When I'm not coding, I'm exploring new tools, contributing to projects, and constantly
+              looking for ways to level up my skills.
+            </p>
+
+            <!-- Quick facts -->
+            <div class="mt-8 grid grid-cols-2 gap-4">
+              <div class="bg-surface border border-gray-800 rounded p-4">
+                <p class="text-accent font-mono font-bold text-xl">4+</p>
+                <p class="text-gray-400 text-sm mt-1">Projects Built</p>
+              </div>
+              <div class="bg-surface border border-gray-800 rounded p-4">
+                <p class="text-accent font-mono font-bold text-xl">6+</p>
+                <p class="text-gray-400 text-sm mt-1">Technologies Used</p>
+              </div>
+            </div>
+          </div>
+          <!-- Code content -->
+          <div class="p-6 font-mono text-sm leading-7">
+            <p><span class="text-purple-400">const</span> <span class="text-accent">haseeb</span> = {</p>
+            <p class="pl-4"><span class="text-blue-300">name</span>: <span class="text-green-400">"Abdul
+                Haseeb"</span>,</p>
+            <p class="pl-4"><span class="text-blue-300">role</span>: <span class="text-green-400">"AI Student &
+                Developer"</span>,</p>
+            <p class="pl-4"><span class="text-blue-300">university</span>: <span
+                class="text-green-400">"PAF-IAST"</span>,</p>
+            <p class="pl-4"><span class="text-blue-300">batch</span>: <span class="text-green-400">"2024–2028"</span>,
+            </p>
+            <p class="pl-4"><span class="text-blue-300">languages</span>: [</p>
+            <p class="pl-8"><span class="text-green-400">"C++"</span>, <span class="text-green-400">"Java"</span>,
+              <span class="text-green-400">"Python"</span>
+            </p>
+            <p class="pl-4">],</p>
+            <p class="pl-4"><span class="text-blue-300">available</span>: <span class="text-orange-400">true</span>
+            </p>
+            <p>};</p>
+          </div>
+        </div>
+      </div>
+
+      </div>
+      </div>
+    </section>
+
+    <!-- ========== EDUCATION ========== -->
+    <section id="education" class="py-24 px-6 bg-surface/30">
+      <div class="max-w-4xl mx-auto">
+
+        <p class="font-mono text-accent text-sm tracking-widest uppercase mb-2" data-aos="fade-up">02. Education</p>
+        <h2 class="text-3xl md:text-4xl font-bold text-white mb-16" data-aos="fade-up" data-aos-delay="100">
+          My Journey
+        </h2>
+
+        <!-- Timeline -->
+        <div class="relative">
+          <!-- Vertical line -->
+          <div class="absolute left-4 md:left-1/2 top-0 bottom-0 w-px bg-gray-800 -translate-x-1/2"></div>
+
+          <!-- Item 1 -->
+          <div class="relative flex flex-col md:flex-row md:justify-end gap-8 mb-12 md:pr-[calc(50%+2rem)]"
+            data-aos="fade-right">
+            <div
+              class="bg-surface border border-gray-800 rounded-lg p-6 ml-12 md:ml-0 hover:border-accent/50 transition-colors duration-300">
+              <span class="font-mono text-accent text-xs tracking-widest uppercase">2020 — 2022</span>
+              <h3 class="text-white font-bold text-lg mt-2">Matriculation</h3>
+              <p class="text-gray-400 text-sm mt-1">Sir Syed College Campus 2, Wah Cantt</p>
+              <p class="text-gray-500 text-xs mt-2 font-mono">Science — Grade 9 & 10</p>
+            </div>
+            <!-- Dot -->
+            <div
+              class="absolute left-4 md:left-1/2 top-6 w-3 h-3 bg-accent rounded-full -translate-x-1/2 ring-4 ring-dark">
+            </div>
+          </div>
+
+          <!-- Item 2 -->
+          <div class="relative flex flex-col md:flex-row gap-8 mb-12 md:pl-[calc(50%+2rem)]" data-aos="fade-left">
+            <div
+              class="bg-surface border border-gray-800 rounded-lg p-6 ml-12 md:ml-0 hover:border-accent/50 transition-colors duration-300">
+              <span class="font-mono text-accent text-xs tracking-widest uppercase">2022 — 2024</span>
+              <h3 class="text-white font-bold text-lg mt-2">Intermediate (FSc Pre-Engineering)</h3>
+              <p class="text-gray-400 text-sm mt-1">KIPS College, Wah Cantt</p>
+              <p class="text-gray-500 text-xs mt-2 font-mono">Grade 11 & 12</p>
+            </div>
+            <!-- Dot -->
+            <div
+              class="absolute left-4 md:left-1/2 top-6 w-3 h-3 bg-accent rounded-full -translate-x-1/2 ring-4 ring-dark">
+            </div>
+          </div>
+
+          <!-- Item 3 -->
+          <div class="relative flex flex-col md:flex-row md:justify-end gap-8 md:pr-[calc(50%+2rem)]"
+            data-aos="fade-right">
+            <div
+              class="bg-surface border border-gray-800 rounded-lg p-6 ml-12 md:ml-0 border-accent/40 hover:border-accent transition-colors duration-300">
+              <div class="flex items-center justify-between mb-2">
+                <span class="font-mono text-accent text-xs tracking-widest uppercase">2024 — 2028</span>
+                <span
+                  class="text-xs bg-accent/10 text-accent border border-accent/30 rounded-full px-2 py-0.5 font-mono">Current</span>
+              </div>
+              <h3 class="text-white font-bold text-lg">BS Computer Science</h3>
+              <p class="text-gray-400 text-sm mt-1">PAF-IAST, Haripur, Mang</p>
+              <p class="text-gray-500 text-xs mt-2 font-mono">Pak-Austria Fachhochschule</p>
+            </div>
+            <!-- Dot -->
+            <div
+              class="absolute left-4 md:left-1/2 top-6 w-3 h-3 bg-accent rounded-full -translate-x-1/2 ring-4 ring-dark ring-offset-1 ring-offset-accent/20 animate-pulse">
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+    <!-- ========== EXPERIENCE ========== -->
+    <section id="experience" class="py-24 px-6">
+      <div class="max-w-4xl mx-auto">
+
+        <p class="font-mono text-accent text-sm tracking-widest uppercase mb-2" data-aos="fade-up">03. Experience</p>
+        <h2 class="text-3xl md:text-4xl font-bold text-white mb-16" data-aos="fade-up" data-aos-delay="100">
+          Where I've Worked
+        </h2>
+
+        <div class="flex flex-col gap-6">
+
+          <!-- Internship 1: Infrix -->
+          <div
+            class="bg-surface border border-gray-800 rounded-lg p-6 hover:border-accent/40 transition-colors duration-300"
+            data-aos="fade-up">
+            <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2 mb-4">
+              <div>
+                <h3 class="text-white font-bold text-lg">AI & Automation Intern</h3>
+                <p class="text-accent font-mono text-sm mt-1">Infrix</p>
+              </div>
+              <div class="flex flex-col items-start sm:items-end gap-1">
+                <span class="font-mono text-xs text-gray-500">Jun 2026 — Jul 2026</span>
+                <span
+                  class="text-xs bg-accent/10 text-accent border border-accent/30 rounded-full px-2 py-0.5 font-mono">Current</span>
+              </div>
+            </div>
+            <p class="text-gray-400 text-sm leading-relaxed mb-4">
+              Working on AI and automation projects including web scraping pipelines and workflow
+              automation. Final project involves building a production-ready automation system using n8n.
+            </p>
+            <div class="flex flex-wrap gap-2">
+              <span class="tech-badge">n8n</span>
+              <span class="tech-badge">Web Scraping</span>
+              <span class="tech-badge">Automation</span>
+              <span class="tech-badge">AI</span>
+            </div>
+          </div>
+
+          <!-- Internship 2: M-Tech -->
+          <div
+            class="bg-surface border border-gray-800 rounded-lg p-6 hover:border-accent/40 transition-colors duration-300"
+            data-aos="fade-up" data-aos-delay="100">
+            <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2 mb-4">
+              <div>
+                <h3 class="text-white font-bold text-lg">Advanced Python Intern</h3>
+                <p class="text-accent font-mono text-sm mt-1">M-Tech</p>
+              </div>
+              <div class="flex flex-col items-start sm:items-end gap-1">
+                <span class="font-mono text-xs text-gray-500">Jul 2026 — Aug 2026</span>
+                <span
+                  class="text-xs bg-gray-800 text-gray-500 border border-gray-700 rounded-full px-2 py-0.5 font-mono">Upcoming</span>
+              </div>
+            </div>
+            <p class="text-gray-400 text-sm leading-relaxed mb-4">
+              Upcoming internship focused on Advanced Python development, covering modern Python
+              techniques, best practices, and real-world application development.
+            </p>
+            <div class="flex flex-wrap gap-2">
+              <span class="tech-badge">Python</span>
+              <span class="tech-badge">Advanced Python</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+    <!-- ========== SKILLS ========== -->
+    <section id="skills" class="py-24 px-6">
+      <div class="max-w-4xl mx-auto">
+
+        <p class="font-mono text-accent text-sm tracking-widest uppercase mb-2" data-aos="fade-up">04. Skills</p>
+        <h2 class="text-3xl md:text-4xl font-bold text-white mb-16" data-aos="fade-up" data-aos-delay="100">
+          What I Work With
+        </h2>
+
+        <div class="grid md:grid-cols-2 gap-6">
+
+          <!-- Programming -->
+          <div
+            class="bg-surface border border-gray-800 rounded-lg p-6 hover:border-accent/40 transition-colors duration-300"
+            data-aos="fade-up">
+            <div class="flex items-center gap-3 mb-6">
+              <span class="text-2xl">💻</span>
+              <h3 class="text-white font-bold text-lg">Programming</h3>
+            </div>
+            <div class="flex flex-wrap gap-3">
+              <span class="skill-badge">C++</span>
+              <span class="skill-badge">Java</span>
+              <span class="skill-badge">Python</span>
+              <span class="skill-badge">MySQL</span>
+            </div>
+          </div>
+
+          <!-- Web -->
+          <div
+            class="bg-surface border border-gray-800 rounded-lg p-6 hover:border-accent/40 transition-colors duration-300"
+            data-aos="fade-up" data-aos-delay="100">
+            <div class="flex items-center gap-3 mb-6">
+              <span class="text-2xl">🌐</span>
+              <h3 class="text-white font-bold text-lg">Web Development</h3>
+            </div>
+            <div class="flex flex-wrap gap-3">
+              <span class="skill-badge">HTML</span>
+              <span class="skill-badge">CSS</span>
+              <span class="skill-badge">JavaScript</span>
+              <span class="skill-badge">Tailwind CSS</span>
+              <span class="skill-badge">Vite</span>
+            </div>
+          </div>
+
+          <!-- Automation -->
+          <div
+            class="bg-surface border border-gray-800 rounded-lg p-6 hover:border-accent/40 transition-colors duration-300"
+            data-aos="fade-up" data-aos-delay="200">
+            <div class="flex items-center gap-3 mb-6">
+              <span class="text-2xl">⚙️</span>
+              <h3 class="text-white font-bold text-lg">Automation</h3>
+            </div>
+            <div class="flex flex-wrap gap-3">
+              <span class="skill-badge">n8n</span>
+            </div>
+          </div>
+
+          <!-- Tools -->
+          <div
+            class="bg-surface border border-gray-800 rounded-lg p-6 hover:border-accent/40 transition-colors duration-300"
+            data-aos="fade-up" data-aos-delay="300">
+            <div class="flex items-center gap-3 mb-6">
+              <span class="text-2xl">🛠️</span>
+              <h3 class="text-white font-bold text-lg">Tools</h3>
+            </div>
+            <div class="flex flex-wrap gap-3">
+              <span class="skill-badge">VS Code</span>
+              <span class="skill-badge">GitHub</span>
+              <span class="skill-badge">Git</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== PROJECTS ========== -->
+    <section id="projects" class="py-24 px-6 bg-surface/30">
+      <div class="max-w-6xl mx-auto">
+
+        <p class="font-mono text-accent text-sm tracking-widest uppercase mb-2" data-aos="fade-up">05. Projects</p>
+        <h2 class="text-3xl md:text-4xl font-bold text-white mb-16" data-aos="fade-up" data-aos-delay="100">
+          Things I've Built
+        </h2>
+
+        <div class="grid md:grid-cols-2 gap-6">
+
+          <!-- Project 1: NailAura -->
+          <div
+            class="bg-surface border border-gray-800 rounded-lg p-6 flex flex-col hover:border-accent/40 transition-colors duration-300 group"
+            data-aos="fade-up">
+            <div class="flex items-start justify-between mb-4">
+              <span class="text-3xl">💅</span>
+              <span class="text-xs font-mono text-accent border border-accent/30 rounded-full px-2 py-0.5">Live</span>
+            </div>
+            <h3 class="text-white font-bold text-xl mb-2 group-hover:text-accent transition-colors">NailAura.pk</h3>
+            <p class="text-gray-400 text-sm leading-relaxed mb-4 flex-1">
+              Custom nail designer business website for a Pakistani nail brand. Features a hero section,
+              gallery with filters and lightbox, WhatsApp booking form, and nationwide delivery info.
+            </p>
+            <div class="flex flex-wrap gap-2 mb-6">
+              <span class="tech-badge">HTML</span>
+              <span class="tech-badge">Tailwind CSS</span>
+              <span class="tech-badge">Vanilla JS</span>
+              <span class="tech-badge">Vite</span>
+              <span class="tech-badge">AOS</span>
+            </div>
+            <a href="https://nailaurapk.netlify.app" target="_blank"
+              class="flex items-center gap-2 text-accent text-sm font-semibold hover:gap-3 transition-all duration-200">
+              View Live Site <span>→</span>
+            </a>
+          </div>
+
+          <!-- Project 2: PAF-IAST Bot -->
+          <div
+            class="bg-surface border border-gray-800 rounded-lg p-6 flex flex-col hover:border-accent/40 transition-colors duration-300 group"
+            data-aos="fade-up" data-aos-delay="100">
+            <div class="flex items-start justify-between mb-4">
+              <span class="text-3xl">🤖</span>
+              <span class="text-xs font-mono text-accent border border-accent/30 rounded-full px-2 py-0.5">Live</span>
+            </div>
+            <h3 class="text-white font-bold text-xl mb-2 group-hover:text-accent transition-colors">PAF-IAST University
+              Bot</h3>
+            <p class="text-gray-400 text-sm leading-relaxed mb-4 flex-1">
+              An intelligent assistant bot for PAF-IAST university students, helping them find
+              information about courses, schedules, and university resources quickly.
+            </p>
+            <div class="flex flex-wrap gap-2 mb-6">
+              <span class="tech-badge">Python</span>
+            </div>
+            <a href="#" target="_blank"
+              class="flex items-center gap-2 text-accent text-sm font-semibold hover:gap-3 transition-all duration-200">
+              View Live Site <span>→</span>
+            </a>
+          </div>
+
+          <!-- Project 3: University Management System -->
+          <div
+            class="bg-surface border border-gray-800 rounded-lg p-6 flex flex-col hover:border-accent/40 transition-colors duration-300 group"
+            data-aos="fade-up" data-aos-delay="200">
+            <div class="flex items-start justify-between mb-4">
+              <span class="text-3xl">🎓</span>
+              <span class="text-xs font-mono text-accent border border-accent/30 rounded-full px-2 py-0.5">Live</span>
+            </div>
+            <h3 class="text-white font-bold text-xl mb-2 group-hover:text-accent transition-colors">University
+              Management System</h3>
+            <p class="text-gray-400 text-sm leading-relaxed mb-4 flex-1">
+              A full university management system covering student enrollment, faculty management,
+              and course management. Features a complete MySQL relational database with real data
+              for students, faculty, and courses.
+            </p>
+            <div class="flex flex-wrap gap-2 mb-6">
+              <span class="tech-badge">Java</span>
+              <span class="tech-badge">MySQL</span>
+            </div>
+            <a href="#" target="_blank"
+              class="flex items-center gap-2 text-accent text-sm font-semibold hover:gap-3 transition-all duration-200">
+              View Live Site <span>→</span>
+            </a>
+          </div>
+
+          <!-- Project 4: Job Seeker Bot -->
+          <div
+            class="bg-surface border border-gray-800 rounded-lg p-6 flex flex-col hover:border-accent/40 transition-colors duration-300 group"
+            data-aos="fade-up" data-aos-delay="300">
+            <div class="flex items-start justify-between mb-4">
+              <span class="text-3xl">🔍</span>
+              <span class="text-xs font-mono text-accent border border-accent/30 rounded-full px-2 py-0.5">Live</span>
+            </div>
+            <h3 class="text-white font-bold text-xl mb-2 group-hover:text-accent transition-colors">Job Seeker Bot</h3>
+            <p class="text-gray-400 text-sm leading-relaxed mb-4 flex-1">
+              An automation bot that helps job seekers find and apply to relevant jobs automatically,
+              saving hours of manual searching and application work.
+            </p>
+            <div class="flex flex-wrap gap-2 mb-6">
+              <span class="tech-badge">n8n</span>
+            </div>
+            <a href="#" target="_blank"
+              class="flex items-center gap-2 text-accent text-sm font-semibold hover:gap-3 transition-all duration-200">
+              View Live Site <span>→</span>
+            </a>
+          </div>
+
+        </div>
+      </div>
+    </section>
+    <!-- ========== CONTACT ========== -->
+    <section id="contact" class="py-24 px-6">
+      <div class="max-w-3xl mx-auto text-center">
+
+        <p class="font-mono text-accent text-sm tracking-widest uppercase mb-2" data-aos="fade-up">06. Contact</p>
+        <h2 class="text-3xl md:text-4xl font-bold text-white mb-4" data-aos="fade-up" data-aos-delay="100">
+          Get In Touch
+        </h2>
+        <p class="text-gray-400 mb-16 max-w-xl mx-auto" data-aos="fade-up" data-aos-delay="200">
+          I'm currently open to new opportunities, collaborations, and interesting projects.
+          Feel free to reach out — I'll get back to you as soon as possible!
+        </p>
+
+        <!-- Contact Cards -->
+        <div class="grid sm:grid-cols-3 gap-4 mb-12">
+
+          <!-- Email -->
+          <a href="mailto:abdulhaseebarain441@gmail.com" class="contact-card" data-aos="fade-up" data-aos-delay="100">
+            <span class="text-3xl mb-3">📧</span>
+            <p class="text-white font-semibold text-sm">Email</p>
+            <p class="text-gray-500 text-xs mt-1 font-mono break-all">abdulhaseebarain441@gmail.com</p>
+          </a>
+
+          <!-- GitHub -->
+          <a href="https://github.com/abdulhaseeb7-star" target="_blank" class="contact-card" data-aos="fade-up"
+            data-aos-delay="200">
+            <span class="text-3xl mb-3">🐙</span>
+            <p class="text-white font-semibold text-sm">GitHub</p>
+            <p class="text-gray-500 text-xs mt-1 font-mono">abdulhaseeb7-star</p>
+          </a>
+
+          <!-- LinkedIn -->
+          <a href="https://www.linkedin.com/in/abdul-haseeb-41056535b" target="_blank" class="contact-card"
+            data-aos="fade-up" data-aos-delay="300">
+            <span class="text-3xl mb-3">💼</span>
+            <p class="text-white font-semibold text-sm">LinkedIn</p>
+            <p class="text-gray-500 text-xs mt-1 font-mono">Abdul Haseeb</p>
+          </a>
+
+        </div>
+
+        <!-- CTA -->
+        <div data-aos="fade-up" data-aos-delay="400">
+          <a href="mailto:abdulhaseebarain441@gmail.com"
+            class="inline-block px-10 py-4 bg-accent text-dark font-bold rounded hover:bg-accent/80 transition-all duration-200">
+            Say Hello 👋
+          </a>
+        </div>
+
+      </div>
+    </section>
+    <!-- ========== FOOTER ========== -->
+    <footer class="border-t border-gray-800 py-8 px-6">
+      <div class="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+
+        <!-- Left -->
+        <p class="font-mono text-gray-600 text-sm">
+          © 2025 <span class="text-accent">Abdul Haseeb</span>. All rights reserved.
+        </p>
+
+        <!-- Right: Social links -->
+        <div class="flex items-center gap-6 text-gray-600 text-sm font-mono">
+          <a href="https://github.com/abdulhaseeb7-star" target="_blank"
+            class="hover:text-accent transition-colors">GitHub</a>
+          <a href="https://www.linkedin.com/in/abdul-haseeb-41056535b" target="_blank"
+            class="hover:text-accent transition-colors">LinkedIn</a>
+          <a href="mailto:abdulhaseebarain441@gmail.com" class="hover:text-accent transition-colors">Email</a>
+        </div>
+
+      </div>
+    </footer>
+
+  </main>
+
+  <!-- ========== SCRIPTS ========== -->
+  <script type="module" src="/src/main.js"></script>
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    // Navbar scroll effect
+    const navbar = document.getElementById("navbar");
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > 20) {
+        navbar.classList.add("bg-dark/90", "backdrop-blur-md", "border-b", "border-gray-800/60", "shadow-lg");
+      } else {
+        navbar.classList.remove("bg-dark/90", "backdrop-blur-md", "border-b", "border-gray-800/60", "shadow-lg");
+      }
+    });
+
+    // Hamburger toggle
+    const menuBtn = document.getElementById("menu-btn");
+    const mobileMenu = document.getElementById("mobile-menu");
+    const lines = document.querySelectorAll(".ham");
+
+    menuBtn.addEventListener("click", () => {
+      mobileMenu.classList.toggle("hidden");
+      lines[0].classList.toggle("rotate-45");
+      lines[0].classList.toggle("translate-y-2");
+      lines[1].classList.toggle("opacity-0");
+      lines[2].classList.toggle("-rotate-45");
+      lines[2].classList.toggle("-translate-y-2");
+    });
+
+    // Close mobile menu on link click
+    document.querySelectorAll(".mob-link").forEach(link => {
+      link.addEventListener("click", () => {
+        mobileMenu.classList.add("hidden");
+        lines[0].classList.remove("rotate-45", "translate-y-2");
+        lines[1].classList.remove("opacity-0");
+        lines[2].classList.remove("-rotate-45", "-translate-y-2");
+      });
+    });
+  </script>
+
+</body>
+<script>
+  // Typing animation
+  const words = ["Web Developer", "Python Developer", "Automation Expert", "CS Student at PAF-IAST"];
+  let wordIndex = 0;
+  let charIndex = 0;
+  let isDeleting = false;
+  const typedEl = document.getElementById("typed-text");
+
+  function type() {
+    const current = words[wordIndex];
+    if (isDeleting) {
+      typedEl.textContent = current.substring(0, charIndex--);
+    } else {
+      typedEl.textContent = current.substring(0, charIndex++);
+    }
+
+    let speed = isDeleting ? 50 : 100;
+
+    if (!isDeleting && charIndex === current.length + 1) {
+      speed = 1500; // pause at end
+      isDeleting = true;
+    } else if (isDeleting && charIndex === 0) {
+      isDeleting = false;
+      wordIndex = (wordIndex + 1) % words.length;
+      speed = 400;
+    }
+
+    setTimeout(type, speed);
+  }
+
+  type();
+</script>
+
 </html>
